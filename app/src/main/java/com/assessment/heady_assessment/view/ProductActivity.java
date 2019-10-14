@@ -55,7 +55,7 @@ public class ProductActivity extends AppCompatActivity implements IProduct {
     @Override
     protected void onResume() {
         super.onResume();
-        recyclerViewProducts.setAdapter(new ProductAdapter(category.getProducts(), this));
+        recyclerViewProducts.setAdapter(new ProductAdapter(category.getProducts(), this,getApplicationContext()));
     }
 
     @Override
@@ -80,7 +80,7 @@ public class ProductActivity extends AppCompatActivity implements IProduct {
             }
         }
 
-        recyclerViewProducts.setAdapter(new ProductAdapter(products, this));
+        recyclerViewProducts.setAdapter(new ProductAdapter(products, this,getApplicationContext()));
     }
 
     void shortMostOrdeRedProducts() {
@@ -97,7 +97,7 @@ public class ProductActivity extends AppCompatActivity implements IProduct {
             }
         }
 
-        recyclerViewProducts.setAdapter(new ProductAdapter(products, this));
+        recyclerViewProducts.setAdapter(new ProductAdapter(products, this,getApplicationContext()));
     }
 
     void shortMostShaRedProducts() {
@@ -114,7 +114,7 @@ public class ProductActivity extends AppCompatActivity implements IProduct {
             }
         }
 
-        recyclerViewProducts.setAdapter(new ProductAdapter(products, this));
+        recyclerViewProducts.setAdapter(new ProductAdapter(products, this,getApplicationContext()));
     }
 
     @Override

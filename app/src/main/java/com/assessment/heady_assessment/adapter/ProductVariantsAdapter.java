@@ -15,11 +15,11 @@ import com.assessment.heady_assessment.data_model.Variant;
 
 public class ProductVariantsAdapter extends RecyclerView.Adapter<ProductVariantsAdapter.ProductVariantsHolder> {
     Product products;
-Context context;
+    Context context;
 
-    public ProductVariantsAdapter(Product products,Context context) {
+    public ProductVariantsAdapter(Product products, Context context) {
         this.products = products;
-        this.context=context;
+        this.context = context;
 
     }
 
@@ -34,12 +34,16 @@ Context context;
     public void onBindViewHolder(@NonNull ProductVariantsHolder holder, int position) {
         Variant variant = products.getVariants().get(position);
         holder.textViewName.setText("Name   " + products.getName());
-        holder.textViewSize.setText("Size   " + variant.getSize());
+        if (variant.getSize()==null) {
+            holder.textViewSize.setText("Size" );
+        } else {
+            holder.textViewSize.setText("Size   " + variant.getSize());
+        }
         holder.textViewColor.setText("Color " + variant.getColor());
         holder.textViewPrice.setText("Price " + variant.getPrice());
         holder.textViewTax.setText("Tax " + products.getTax().getValue() + " " + products.getTax().getName());
 
-        if(position%2==1){
+        if (position % 2 == 1) {
             holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.colorGrey));
         }
     }

@@ -1,5 +1,6 @@
 package com.assessment.heady_assessment.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,12 @@ import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductHolder> {
     List<Product> products;
     IProduct iProduct;
+    Context context;
 
-    public ProductAdapter(List<Product> products, IProduct iProduct) {
+    public ProductAdapter(List<Product> products, IProduct iProduct,Context context) {
         this.products = products;
         this.iProduct = iProduct;
+        this.context=context;
     }
 
     @NonNull
@@ -34,6 +37,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
         Product product = products.get(position);
         holder.textViewProductTitle.setText(product.getName());
+        if(position%2==1){
+            holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.colorGrey));
+        }
     }
 
     @Override

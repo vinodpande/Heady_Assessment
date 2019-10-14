@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements ICategroyItem {
 
     private void handleResponse(CategoriesResponse categoriesResponse) {
 
-        recyclerCategoryView.setAdapter(new CategoryAdapter(categoriesResponse.getCategories(),categoriesResponse.getRankings(),this));
+        recyclerCategoryView.setAdapter(new CategoryAdapter(categoriesResponse.getCategories(),categoriesResponse.getRankings(),this,this));
         Log.i("categories Response", categoriesResponse.getCategories().get(0).getName());
     }
 

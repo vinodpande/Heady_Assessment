@@ -1,5 +1,6 @@
 package com.assessment.heady_assessment.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +20,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     List<Category> categories;
     List<Ranking> rankings;
     ICategroyItem iCategroyItem;
+    Context context;
 
-    public CategoryAdapter(List<Category> categories,List<Ranking> rankings, ICategroyItem iCategroyItem) {
+    public CategoryAdapter(List<Category> categories,List<Ranking> rankings, ICategroyItem iCategroyItem,Context context) {
         this.categories = categories;
         this.rankings=rankings;
         this.iCategroyItem = iCategroyItem;
+        this.context=context;
     }
 
 
@@ -39,6 +42,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public void onBindViewHolder(@NonNull CategoryHolder holder, int position) {
         Category category = categories.get(position);
         holder.textViewCategoryTitle.setText(category.getName());
+        if(position%2==1){
+            holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.colorGrey));
+        }
     }
 
     @Override
