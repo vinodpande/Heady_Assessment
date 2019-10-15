@@ -34,8 +34,8 @@ public class ProductVariantsAdapter extends RecyclerView.Adapter<ProductVariants
     public void onBindViewHolder(@NonNull ProductVariantsHolder holder, int position) {
         Variant variant = products.getVariants().get(position);
         holder.textViewName.setText("Name   " + products.getName());
-        if (variant.getSize()==null) {
-            holder.textViewSize.setText("Size" );
+        if (variant.getSize() == null) {
+            holder.textViewSize.setText("Size");
         } else {
             holder.textViewSize.setText("Size   " + variant.getSize());
         }
